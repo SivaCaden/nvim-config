@@ -1,5 +1,5 @@
 require('siva.remap')
-require('siva.packer')
 require('siva.set')
+require('siva.lazy')
 
 

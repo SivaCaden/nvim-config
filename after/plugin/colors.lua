@@ -1,6 +1,6 @@
 
 function color(c)
-    c = c or "tokyonight-moon"
+    c = c or "kanagawa"
     vim.cmd.colorscheme(c)
 
     vim.api.nvim_set_hl(0, "Normal", { bg="none"})
