@@ -16,36 +16,17 @@ return {
             local opts = { noremap = true, silent = true }
             local on_attach = function(client, bufnr)
                 opts.buffer = bufnr
+                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+                vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+                vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+                vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+                vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+                vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-                opts.desc = "Show lsp references"
-                keymap.set("n", "<leader>gR", "<cmd>Telescope lsp_references<CR>", opts)
-
-                opts.desc = "goto definition"
-                keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-
-                opts.desc = "Show lsp type definition"
-                keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-
-                opts.desc = "hover"
-                keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-                
-                opts.desc = "Rename"
-                keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-
-                opts.desc = "Code action"
-                keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-
-                opts.desc = "Formatting"
-                keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-                opts.desc = "Show buffer diagnostics"
-                keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0>CR>", opts)
-
-                opts.desc = "Show line diagnostics"
-                keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-
-                opts.desc = "restart lsp server"
-                keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
             end
             local capabilities = cmp_nvim_lsp.default_capabilities()
 
