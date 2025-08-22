@@ -36,22 +36,6 @@ return {
                 Info = "ℹ",
             }
 
-             lspconfig["pyright"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    python = {
-                        analysis = {
-                            typeCheckingMode = "basic",
-                            autoImportCompletions = true,
-                            autoSearchPaths = true,
-                            diagnosticMode = "openFilesOnly",
-
-                            useLibraryCodeForTypes = true,
-                        },
-                    },
-                },
-            }
 
             lspconfig["pylsp"].setup {
                 on_attach = on_attach,

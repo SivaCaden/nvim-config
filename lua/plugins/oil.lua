@@ -14,7 +14,10 @@ return {
         config = function()
             local keymap = vim.keymap
             require("oil").setup({
-                keymap.set("n", "<leader>o", "<cmd>Oil<CR>", opts)
+                keymap.set("n", "<leader>o", "<cmd>Oil<CR>", opts),
+                view_options = {
+                    show_hidden = true,
+                },
             })
         end
 
