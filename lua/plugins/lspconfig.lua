@@ -101,6 +101,14 @@ return {
                     },
                 },
             }
+            lspconfig["pico8_ls"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
+            lspconfig["omnisharp"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
 
 
             -- Additional setup for specific servers can go here
