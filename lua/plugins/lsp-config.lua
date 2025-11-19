@@ -37,7 +37,7 @@ return {
                 Info = "ℹ",
             }
 
-            lspconfig["pyright"].setup {
+            lspconfig["pylsp"].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
                 settings = {
@@ -46,29 +46,10 @@ return {
                             typeCheckingMode = "basic",
                             autoImportCompletions = true,
                             autoSearchPaths = true,
-                            diagnosticMode = "openFilesOnly",
-
                             useLibraryCodeForTypes = true,
+                            diagnosticMode = "openFilesOnly",
                         },
-                    },
-                },
-            }
 
-            lspconfig["pylsp"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            ignore = {"W391"},
-                            maxLineLength = 100,
-                            pyflakes = { enabled = false },
-                            flake8 = { enabled = false },
-                            pycodestyle = { enabled = false },
-                            pylint = { enabled = false },
-                            mccabe = { enabled = false },
-                            yapf = { enabled = true },
-                        },
                     },
                 },
             }
